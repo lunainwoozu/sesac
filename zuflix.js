@@ -7,20 +7,17 @@ const searchList = document.querySelector(".search-list");
 const movies = movieList.results;
 
 const keywordInput = document.getElementById("keywordInput");
-const button = document.querySelector(".searchMovie");
-const nextButton = document.querySelector(".nextButton");
 
 //이미지 기본 url https://image.tmdb.org/t/p/w440_and_h660_face
 
 function searchMovie(){
 	const keyword = document.getElementById('keywordInput').value.toLowerCase();
+  const filtered = movies.filter((movie) =>  movie.title.toLowerCase().includes(keyword));
+
   if (!keyword) {
     alert('영화 제목을 입력해 주세요.');
     return;
   }
-  const filtered = movies.filter((movie) =>
-    movie.title.toLowerCase().includes(keyword)
-  );
 	searchList.innerHTML = "";
 	
 	if (filtered.length === 0) {
@@ -30,9 +27,6 @@ function searchMovie(){
 		return;
 	} else {
     filtered.forEach((movie) => {
-      console.log(
-      "찾는 문자가 있습니다 💗 반환값 : ", (movie.title)
-      );
       const card = document.createElement("div");
       card.classList.add("cols-md-4");
       card.innerHTML = `
