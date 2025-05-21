@@ -1,6 +1,5 @@
 'use strict';
 
-const main = document.querySelector("main");
 const form = document.querySelector("form");
 const list = document.getElementById("list");
 
