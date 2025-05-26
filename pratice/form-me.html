@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>구글 폼 클론 - 기본 구조</title>
+  <style>
+    body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    *{
+      padding: 0;
+      margin: 0;
+      line-height: 1.5;
+      box-sizing: border-box;
+    }
+    h1{
+      text-align: center;
+      line-height: 2.5;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      padding: 30px;
+      width: 80%;
+      min-width: 400px;
+      border-radius: 20px;
+      box-shadow: 5px 5px 15px #bababa;
+    }
+    p + p, p + button, button + button {
+      margin-top: 20px;
+    }
+    label{
+      font-weight: bold;
+    }
+    input:not([type=checkbox]),select{
+      width: 100%;
+      height: 50px;
+      padding: 4px 10px;
+      border: 1px solid;
+      border-radius: 10px;
+    }
+    #agree{
+      text-align: center;
+    }
+    button{
+      height: 50px;
+      background: #184fd0;
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>구글 폼 클론 - 사용자 설문지</h1>
+  <form action="">
+    <p>
+      <label for="name">이름: </label>
+      <input type="text" id="name" placeholder="이름을 입력하세요">
+    </p>
+    <p>
+      <label for="email">이메일: </label>
+      <input type="email" id="email" placeholder="example@gmail.com">
+    </p>
+    <p>
+      <label for="phone">전화번호: </label>
+      <input type="tel" id="phone" placeholder="010-1234-5678">
+    </p>
+    <p>
+      <label for="gender">성별: </label>
+      <select id="gender" name="gender">
+        <option value="남성">남성</option>
+        <option value="여성">여성</option>
+        <option value="모름">모름</option>
+      </select>
+    </p>
+    <p>
+      <label for="agree">이용 약관에 동의:</label>
+      <br />
+      <input type="checkbox" name="agree" id="agree" required>
+    </p>
+    <button type="submit" id="submit">제출하기</button>
+    <button>추가 질문 추가</button>
+  </form>
+  <script>
+    document.querySelector("form").addEventListener("submit", function(){
+      event.preventDefault();
+      const name = document.querySelector("#name").value;
+      const email = document.querySelector("#email").value;
+      name != false && email != false ? alert(`설문지 제출 완료!\r이름: ${name}\r이메일: ${email}`) : alert("입력되지 않은 값이 있습니다!");
+    })
+    // const submit = document.querySelector("#submit");
+
+    // function last(){
+    //   const name = document.querySelector("#name").value;
+    //   const email = document.querySelector("#email").value;
+    //   if (name.trim() != "" && email.trim() != ""){
+    //     alert(`설문지 제출 완료!\r이름: ${name}\r이메일: ${email}`);
+    //   } else {
+    //     alert("입력되지 않은 값이 있습니다!");
+    //   }
+    // }
+  </script>
+</body>
+</html>0

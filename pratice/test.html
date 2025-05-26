@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 조작 예제</title>
+  <style>
+    #box{
+      width: 200px;
+      height: 200px;
+      background-color: skyblue;
+      margin-bottom: 10px;
+      transition:  all 0.3s;
+    }
+
+    .highlight{
+      border: 3px solid crimson;
+    }
+    .rounded{
+      border-radius: 12px;
+    }
+    .dark{
+      background-color: #444;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">DOM 실습</h1>
+  <div id="box">박스</div>
+
+  <button onclick="toggleContent();">내용 토글</button>
+  <button onclick="toggleAttr()">속성 토글</button>
+  <button onclick="toggleStyle()">스타일 변경</button>
+  <button onclick="addClass()">클래스 추가</button>
+  <button onclick="removeClass()">클래스 삭제</button>
+  <button onclick="toggleClass()">클래스 토글</button>
+  <button onclick="addElement()">요소 추가</button>
+  <button onclick="removeElement()">요소 삭제</button>
+
+  <script>
+    const title = document.getElementById('title');
+    const box = document.getElementById('box');
+    let addedElement = null;
+
+    let contentToggle = false;
+    let attrToggle = false;
+
+    function toggleContent() {
+      if (!contentToggle){
+        title.innerHTML = '<mark>DOM 변경 완료!</mark>'
+        box.textContent = '텍스트만 출력 (textContent)'
+      } else {
+        title.textContent = 'DOM 실습'
+        box.textContent = '박스'
+      }
+      contentToggle = !contentToggle;
+    }
+    
+    function toggleAttr(){
+      if (!attrToggle){
+        box.setAttribute('title', '여기에 마우스를 올려 보세요');
+      } else {
+        box.removeAttribute('title');
+      }
+      attrToggle = !attrToggle;
+    }
+
+    function toggleStyle() {
+      box.style.backgroundColor = box.style.backgroundColor === 'orange' ? 'skyblue' : 'orange'
+    }
+
+    function addClass(){
+      box.classList.add('highlight', 'rounded');
+    }
+
+    function removeClass(){
+      box.classList.remove('highlight', 'rounded', 'dark');
+    }
+
+    function toggleClass(){
+      box.classList.toggle('dark');
+    }
+
+    function addElement(){
+      if (!addedElement){
+        addedElement = document.createElement('p');
+        addedElement.textContent = '새로운 요소가 추가되었어요!';
+        document.body.appendChild(addedElement);
+      }
+    }
+
+    function removeElement(){
+      if (addedElement){
+        document.body.removeChild(addedElement);
+        addedElement = null;
+      }
+    }
+  </script>
+</body>
+</html>

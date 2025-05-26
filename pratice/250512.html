@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹 페이지 실습</title>
+  <style>
+    div{
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      background: linear-gradient(#F7CAC9, #8DA4D0);
+      box-shadow: 3px 3px 10px #555;
+    }
+    button:hover{
+      background: rgba(34, 0, 255, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>나의 첫 웹 페이지</h1>
+    <p>버튼을 클릭해보세요!</p>
+    <button>클릭하기</button>
+  </div>
+  <script>
+    const button = document.querySelector("button");
+    const p = document.querySelector("p");
+
+    const click = () => p.textContent = "버튼이 클릭되었습니다!";
+    
+    button.addEventListener('click', () => click());
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹 페이지 실습</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    #main {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #666;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main">
+    <h1>나의 첫 웹 페이지</h1>
+    <p id="message">이름을 입력하세요</p>
+    <input type="text" id="name" placeholder="이름"><button onclick="changeText()">인사하기</button>
+  </div>
+
+  <script>
+    function changeText() {
+      const message = document.getElementById("message");
+      const name = document.querySelector("#name").value;
+      if (name != false){
+        message.textContent = `안녕하세요, ${name}님!`;
+      } else {
+        message.textContent = `이름을 입력하세요`;
+      }
+    }
+  </script>
+</body>
+
+</html>
