@@ -1,0 +1,10 @@
+### add table
+POST http://localhost:3000/api/tables
+Content-Type: : application/json
+
+{
+  "tableName": "test"
+}
+
+###
+GET http://localhost:3000/api/tables
